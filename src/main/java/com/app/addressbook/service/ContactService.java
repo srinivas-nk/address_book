@@ -3,6 +3,7 @@ package com.app.addressbook.service;
 import com.app.addressbook.entities.AddressBook;
 import com.app.addressbook.entities.Contact;
 import com.app.addressbook.exception.ResourceNotFoundException;
+import com.app.addressbook.model.ApiResponse;
 import com.app.addressbook.model.ContactResponse;
 import com.app.addressbook.repository.AddressBookRepository;
 import com.app.addressbook.repository.ContactRepository;
@@ -33,6 +34,15 @@ public class ContactService {
             throw new ResourceNotFoundException(CONTACT_NOT_FOUND);
         }
         return new ResponseEntity<>(ConverterUtil.uniqueContacts(contacts), HttpStatus.OK);
+    }
+
+    public ResponseEntity<Object> getContactsByAddressBookId(int addressBookId) {
+        Optional<AddressBook> addressBook = addressBookRepository.findById(addressBookId);
+        if(addressBook.isPresent()) {
+            List<Contact> contacts = contactRepository.findByAddressBook(addressBook.get());
+            return new ResponseEntity<>(ConverterUtil.contactResponseConverter(contacts), HttpStatus.OK);
+        }
+        throw new ResourceNotFoundException(ADDRESS_BOOK_NOT_FOUND);
     }
 
     public ResponseEntity<Object> getContactByIdAndAddressBookId(int addressBookId, int contactId) {

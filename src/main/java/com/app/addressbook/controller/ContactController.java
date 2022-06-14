@@ -19,6 +19,11 @@ public class ContactController {
         return contactService.getAllContacts();
     }
 
+    @GetMapping("/{addressBookId}/contacts")
+    public ResponseEntity<Object> getAllContactByAddressBookId(@PathVariable int addressBookId) {
+        return contactService.getContactsByAddressBookId(addressBookId);
+    }
+
     @GetMapping("/{addressBookId}/contacts/{contactId}")
     public ResponseEntity<Object> getContactByIdAndAddressBookId(@PathVariable int addressBookId, @PathVariable int contactId) {
         return contactService.getContactByIdAndAddressBookId(addressBookId, contactId);
