@@ -21,4 +21,58 @@ mvn spring-boot:run
 ```
 
 ## REST API Endpoints
-Get contacts details from Address Book
+Get All Contact details from AddressBook
+```
+GET http://localhost:8080/v1/address-book/{addressBookId}/contacts
+```
+
+Get Contact details by id from AddressBook
+```
+GET http://localhost:8080/v1/address-book/{addressBookId}/contacts/{contactId}
+```
+
+Add Contact details to AddressBook
+```
+POST http://localhost:8080/v1/address-book/{addressBookId}/contacts
+
+Payload:
+{
+    "name":"Customer",
+    "phone": "9345678911"
+}
+```
+
+Delete Contact details by id from AddressBook
+```
+DELETE http://localhost:8080/v1/address-book/{addressBookId}/contacts/{contactId}
+```
+
+Get All Unique contact details
+```
+GET http://localhost:8080/v1/address-book/all-unique-contacts
+```
+
+Get all AddressBook details 
+```
+GET http://localhost:8080/v1/address-book
+```
+
+Get AddressBook details by Id
+```
+GET http://localhost:8080/v1/address-book/{addressBookId}
+```
+
+Add AddressBook
+```
+POST http://localhost:8080/v1/address-book
+
+Payload:
+{
+    "name":"amazon"
+}
+```
+
+Delete AddressBook
+```
+DELETE http://localhost:8080/v1/address-book/{addressBookId}
+```
