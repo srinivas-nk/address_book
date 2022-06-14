@@ -29,7 +29,7 @@ public class AddressBookControllerTest {
 
     @Before
     public void setUp() {
-        baseUrl = baseUrl + randomServerPort + "/v1/address-book";
+        baseUrl = baseUrl + randomServerPort + "/app/v1/address-book";
     }
 
     @Test

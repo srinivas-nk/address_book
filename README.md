@@ -23,17 +23,17 @@ mvn spring-boot:run
 ## REST API Endpoints
 Get All Contact details from AddressBook
 ```
-GET http://localhost:8080/v1/address-book/{addressBookId}/contacts
+GET http://localhost:8080/app/v1/address-book/{addressBookId}/contacts
 ```
 
 Get Contact details by id from AddressBook
 ```
-GET http://localhost:8080/v1/address-book/{addressBookId}/contacts/{contactId}
+GET http://localhost:8080/app/v1/address-book/{addressBookId}/contacts/{contactId}
 ```
 
 Add Contact details to AddressBook
 ```
-POST http://localhost:8080/v1/address-book/{addressBookId}/contacts
+POST http://localhost:8080/app/v1/address-book/{addressBookId}/contacts
 
 Payload:
 {
@@ -44,27 +44,27 @@ Payload:
 
 Delete Contact details by id from AddressBook
 ```
-DELETE http://localhost:8080/v1/address-book/{addressBookId}/contacts/{contactId}
+DELETE http://localhost:8080/app/v1/address-book/{addressBookId}/contacts/{contactId}
 ```
 
 Get All Unique contact details
 ```
-GET http://localhost:8080/v1/address-book/all-unique-contacts
+GET http://localhost:8080/app/v1/address-book/all-unique-contacts
 ```
 
 Get all AddressBook details 
 ```
-GET http://localhost:8080/v1/address-book
+GET http://localhost:8080/app/v1/address-book
 ```
 
 Get AddressBook details by Id
 ```
-GET http://localhost:8080/v1/address-book/{addressBookId}
+GET http://localhost:8080/app/v1/address-book/{addressBookId}
 ```
 
 Add AddressBook
 ```
-POST http://localhost:8080/v1/address-book
+POST http://localhost:8080/app/v1/address-book
 
 Payload:
 {
@@ -74,5 +74,13 @@ Payload:
 
 Delete AddressBook
 ```
-DELETE http://localhost:8080/v1/address-book/{addressBookId}
+DELETE http://localhost:8080/app/v1/address-book/{addressBookId}
 ```
+
+## Swagger-doc
+```
+http://localhost:8080/app/v3/api-docs
+```
+
+## Note
+Docker changes are not tested locally.
