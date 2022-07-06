@@ -13,8 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static com.app.addressbook.constants.Constants.CONTACT_NOT_FOUND;
 import static com.app.addressbook.constants.Constants.ADDRESS_BOOK_NOT_FOUND;
@@ -84,5 +83,22 @@ public class ContactService {
             throw new ResourceNotFoundException(CONTACT_NOT_FOUND);
         }
         throw new ResourceNotFoundException(ADDRESS_BOOK_NOT_FOUND);
+    }
+
+    public ResponseEntity<Object> getCommonContacts() {
+        Set<ContactResponse> responses = new HashSet<>();
+        List<Object> contacts = contactRepository.findCommonContacts();
+        if(contacts.isEmpty()) {
+            throw new ResourceNotFoundException(CONTACT_NOT_FOUND);
+        }
+        Iterator itr = contacts.iterator();
+        while(itr.hasNext()){
+            Object[] obj = (Object[]) itr.next();
+            int id = Integer.parseInt(String.valueOf(obj[0]));
+            String name = String.valueOf(obj[1]);
+            String phone = String.valueOf(obj[2]);
+            responses.add(ConverterUtil.contactResponseConverter(id,name,phone));
+        }
+        return new ResponseEntity<>(responses, HttpStatus.OK);
     }
 }

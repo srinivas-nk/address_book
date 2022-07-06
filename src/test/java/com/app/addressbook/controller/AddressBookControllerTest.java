@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static io.restassured.RestAssured.delete;
@@ -19,7 +20,7 @@ import static org.hamcrest.Matchers.hasItems;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class AddressBookControllerTest {
 
     @LocalServerPort
@@ -60,9 +61,9 @@ public class AddressBookControllerTest {
 
     @Test
     public void deleteAddressBook() {
-        Response response = delete(baseUrl+"/1");
+        Response response = delete(baseUrl+"/101");
         response.then().body("id", Matchers.any(Integer.class));
-        response.then().body("name", Matchers.is("retail"));
+        response.then().body("name", Matchers.is("amazon"));
     }
 
     @Test

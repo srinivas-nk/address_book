@@ -5,3 +5,7 @@ insert into CONTACT (id, name, phone, address_book_id) values(1000, 'Customer1',
 insert into CONTACT (id, name, phone, address_book_id) values(1001, 'Customer2', '9812345679', 101);
 insert into CONTACT (id, name, phone, address_book_id) values(1002, 'Customer3', '9812345678', 102);
 insert into CONTACT (id, name, phone, address_book_id) values(1003, 'Customer4', '9812345679', 102);
+insert into CONTACT (id, name, phone, address_book_id) values(1004, 'Customer1', '9812345678', 102);
+insert into CONTACT (id, name, phone, address_book_id) values(1005, 'Customer2', '9812345679', 102);
+insert into CONTACT (id, name, phone, address_book_id) values(1006, 'Customer9', '9812345666', 102);
+insert into CONTACT (id, name, phone, address_book_id) values(1007, 'Customer9', '9812345666', 102);

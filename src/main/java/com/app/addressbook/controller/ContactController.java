@@ -67,4 +67,15 @@ public class ContactController {
     public ResponseEntity<Object> deleteByIdAndAddressBookId(@PathVariable int addressBookId, @PathVariable int contactId) {
         return contactService.deleteContact(addressBookId, contactId);
     }
+
+    @ApiOperation(value = "Get all Common contacts", notes = "Returns all common contacts")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved", examples = @Example(value = @ExampleProperty(mediaType = "application/json", value = CONTACT_RESPONSE))),
+            @ApiResponse(code = 404, message = "Not found - The contact details were not found", examples = @Example(value = @ExampleProperty(mediaType = "application/json", value = ERROR_RESPONSE)))
+    })
+    @GetMapping("/all-common-contacts")
+    public ResponseEntity<Object> getAllCommonContacts() {
+        return contactService.getCommonContacts();
+    }
+
 }

@@ -28,6 +28,14 @@ public class ConverterUtil {
         return contactResponse;
     }
 
+    public static ContactResponse contactResponseConverter(int id, String name, String phone) {
+        ContactResponse contactResponse = new ContactResponse();
+        contactResponse.setId(id);
+        contactResponse.setPhone(phone);
+        contactResponse.setName(name);
+        return contactResponse;
+    }
+
     public static ApiResponse getApiResponse(AddressBook addressBook) {
         ApiResponse response = new ApiResponse();
         response.setId(addressBook.getId());

@@ -24,7 +24,7 @@ public class AddressBookApplication {
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.app.addressbook.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.app.addressbook"))
 				.paths(PathSelectors.any())
 				.build();
 	}
